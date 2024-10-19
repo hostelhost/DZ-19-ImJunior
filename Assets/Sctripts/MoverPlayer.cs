@@ -7,6 +7,7 @@ public class MoverPlayer : MonoBehaviour
 
     [SerializeField] private Animator _animator;
     [SerializeField] private float _speed = 5.0f;
+    [SerializeField] private PlayerAnimatorData _playerAnimatorData;
 
     private float _inputHorizontal;
     private float _inputVertical;
@@ -23,7 +24,7 @@ public class MoverPlayer : MonoBehaviour
 
     private void ManageAnimator()
     {
-        _animator.SetFloat("horizonalAxis", _inputHorizontal);
-        _animator.SetFloat("verticalAxis", _inputVertical);
+        _animator.SetFloat(_playerAnimatorData.horizonalAxisID, _inputHorizontal);
+        _animator.SetFloat(_playerAnimatorData.verticalAxisID, _inputVertical);
     }
 }
