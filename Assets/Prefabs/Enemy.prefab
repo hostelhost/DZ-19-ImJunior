@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 862474418320730397}
   - component: {fileID: 7712233580489765066}
   - component: {fileID: 449781541027626839}
+  - component: {fileID: 915194586614963998}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6cc676d724eec642a4db41b239b0d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targets:
+  _path:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -142,6 +143,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _speed: 3
+  _detector: {fileID: 915194586614963998}
 --- !u!61 &7712233580489765066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,3 +201,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419689f9424b90740b3ecd89628aca79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attack: 10
+  _timeInterval: 1
+--- !u!114 &915194586614963998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2760451418726151910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85a8f89695cf0442a58136d1e02d9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDistanceToTarget: 6
+  _globalTarget: {fileID: 0}
