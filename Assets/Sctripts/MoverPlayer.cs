@@ -24,7 +24,7 @@ public class MoverPlayer : MonoBehaviour
 
     private void ManageAnimator()
     {
-        _animator.SetFloat(_playerAnimatorData.horizonalAxisID, _inputHorizontal);
-        _animator.SetFloat(_playerAnimatorData.verticalAxisID, _inputVertical);
+        _animator.SetFloat(_playerAnimatorData.HorizonalAxisID, _inputHorizontal);
+        _animator.SetFloat(_playerAnimatorData.VerticalAxisID, _inputVertical);
     }
 }

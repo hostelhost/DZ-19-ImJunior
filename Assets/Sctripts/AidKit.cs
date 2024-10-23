@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class AidKit : MonoBehaviour
+public class AidKit : MonoBehaviour, ICollectable
 {
-    [SerializeField] private int LifeForce = 25;
+    [SerializeField] private int _lifeForce = 25;
 
-    public int TransferLifeForce()
+    public int Execute()
     {
         Destroy(gameObject);
-        return LifeForce;
+        return _lifeForce;
     }
 }

@@ -1,26 +1,26 @@
-using System;
-using System.Runtime.CompilerServices;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITakingDamage
 {
     private const int MaximumLifeForce = 100;
     private int LifeForce = MaximumLifeForce;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Gold>())
-            Destroy(collision.gameObject);
-        
-        if (collision.TryGetComponent<AidKit>(out AidKit adiKit))        
-            TryToAcceptLifeForce(adiKit.TransferLifeForce());    
+        if (collision.TryGetComponent(out ICollectable collectable))
+        {
+            if (collectable is Gold gold)
+                gold.Execute();
+
+            if (collectable is AidKit aidKit)           
+                TryToAcceptLifeForce(aidKit.Execute());            
+        }         
     }
 
     public void TakeDamage(int damage)
     {
         LifeForce -= damage;
-        Debug.Log("Жизненная сила"+ LifeForce);
+        Debug.Log("Жизненная сила Player" + LifeForce);
         IsAlive();       
     }
 

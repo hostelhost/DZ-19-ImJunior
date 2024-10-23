@@ -17,10 +17,10 @@ public class MoverEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (_detector.IsChasing == false)       
-            FollowPath();     
-        else      
-            FollowGlobalTarget();       
+        if (_detector.IsChasing == false)
+            FollowPath();
+        else
+            FollowGlobalTarget();
     }
 
     private void FollowGlobalTarget()

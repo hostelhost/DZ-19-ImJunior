@@ -2405,17 +2405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dc87a2fc668ec41b614186dfef33e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1784981954 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3784281870233618531, guid: 901a54145fa4bda4789561df2ae5be05, type: 3}
-  m_PrefabInstance: {fileID: 7026777386219302543}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0caa1d9cd6a5630449bcaa51f4a9eb26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1793943037
 GameObject:
   m_ObjectHideFlags: 0
@@ -11774,10 +11763,6 @@ PrefabInstance:
       propertyPath: _path.Array.data[18]
       value: 
       objectReference: {fileID: 1379871758}
-    - target: {fileID: 915194586614963998, guid: f5e7a21d38e36b443b8a7e55915698a2, type: 3}
-      propertyPath: _globalTarget
-      value: 
-      objectReference: {fileID: 1784981954}
     - target: {fileID: 2760451418726151910, guid: f5e7a21d38e36b443b8a7e55915698a2, type: 3}
       propertyPath: m_Name
       value: Enemy

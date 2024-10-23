@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
-[RequireComponent(typeof(BoxCollider2D))]
-public class EnemyAttacer : MonoBehaviour
+
+public class Attacer : MonoBehaviour
 {
     [SerializeField] private int _attack = 10;
     [SerializeField] private float _timeInterval = 1f;
@@ -16,21 +16,21 @@ public class EnemyAttacer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Player>(out Player player))
-            _coroutine = StartCoroutine(AttackEveryTimeInterval(player));
+        if (collision.TryGetComponent(out ITakingDamage component))
+            _coroutine = StartCoroutine(AttackEveryTimeInterval(component));
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Player>(out Player player))
+        if (collision.TryGetComponent(out ITakingDamage component))
             StopCoroutine(_coroutine);
     }
 
-    private IEnumerator AttackEveryTimeInterval(Player player)
+    private IEnumerator AttackEveryTimeInterval(ITakingDamage attacked)
     {
-        while (player!= null)
+        while (attacked != null)
         {
-            player.TakeDamage(_attack);
+            attacked.TakeDamage(_attack);
             yield return _waitForSeconds;
         }
     }  
