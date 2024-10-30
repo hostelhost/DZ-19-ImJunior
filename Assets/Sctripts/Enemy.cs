@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITakingDamage
 {
-    private const int MaximumLifeForce = 200;
-    private int LifeForce = MaximumLifeForce;
+    [SerializeField] private int _lifeForce = 200;
 
     public void TakeDamage(int damage)
     {
-        LifeForce -= damage;
-        Debug.Log("Жизненная сила Enemy" + LifeForce);
+        _lifeForce -= damage;
+        Debug.Log("Жизненная сила Enemy" + _lifeForce);
         IsAlive();
     }
 
     private void IsAlive()
     {
-        if (0 >= LifeForce)
+        if (0 >= _lifeForce)
             Destroy(gameObject);
     }
 }

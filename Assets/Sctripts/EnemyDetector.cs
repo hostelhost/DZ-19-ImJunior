@@ -2,25 +2,22 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class EnemyDetector : MonoBehaviour
 {
-    private Vector3 _prosecuted;
-    
-    public bool IsChasing { get; private set; }
+    private Player _globalTarget;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Player>(out Player prosecuted))
-        {
-            IsChasing = true;
-            _prosecuted = prosecuted.transform.position;
-        }
+        if (collision.TryGetComponent<Player>(out Player prosecuted)) 
+            _globalTarget = prosecuted;                    
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Player>())        
-            IsChasing = false;        
+        if (collision.GetComponent<Player>())
+            _globalTarget = null;        
     }
 
-    public Vector3 GetGlobalTarget() =>
-         _prosecuted;  
+    public Player GetGlobalTarget()
+    {
+        return _globalTarget;
+    }
 }

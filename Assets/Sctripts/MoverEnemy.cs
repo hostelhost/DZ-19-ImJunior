@@ -12,12 +12,12 @@ public class MoverEnemy : MonoBehaviour
     private void Start()
     {
         _currentIndexOfTarget = _path.Length - 1;
-        _pathTarget = NextTarget();
+        _pathTarget = TakeNextTarget();
     }
 
     private void Update()
     {
-        if (_detector.IsChasing == false)
+        if (_detector.GetGlobalTarget() == null)
             FollowPath();
         else
             FollowGlobalTarget();
@@ -25,7 +25,7 @@ public class MoverEnemy : MonoBehaviour
 
     private void FollowGlobalTarget()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _detector.GetGlobalTarget(), _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _detector.GetGlobalTarget().transform.position, _speed * Time.deltaTime);
     }
 
     private void FollowPath()
@@ -33,10 +33,10 @@ public class MoverEnemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, _pathTarget, _speed * Time.deltaTime);
 
         if (Vector2.SqrMagnitude(transform.position - _pathTarget) == 0*0)
-            _pathTarget = NextTarget();
+            _pathTarget = TakeNextTarget();
     }
 
-    private Vector3 NextTarget()
+    private Vector3 TakeNextTarget()
     {
         _currentIndexOfTarget = ++_currentIndexOfTarget % _path.Length;
         return _path[_currentIndexOfTarget].transform.position;
