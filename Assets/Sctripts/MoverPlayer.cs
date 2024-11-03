@@ -11,12 +11,12 @@ public class MoverPlayer : MonoBehaviour
     {
         ManageAnimator();
 
-        transform.Translate(_inputManager._inputHorizontal * Time.deltaTime * _speed, _inputManager._inputVertical * Time.deltaTime * _speed, 0, Space.World);
+        transform.Translate(_inputManager.InputHorizontal * Time.deltaTime * _speed, _inputManager.InputVertical * Time.deltaTime * _speed, 0, Space.World);
     }
 
     private void ManageAnimator()
     {
-        _animator.SetFloat(_playerAnimatorData.HorizonalAxisID, _inputManager._inputHorizontal);
-        _animator.SetFloat(_playerAnimatorData.VerticalAxisID, _inputManager._inputVertical);
+        _animator.SetFloat(_playerAnimatorData.HorizonalAxisID, _inputManager.InputHorizontal);
+        _animator.SetFloat(_playerAnimatorData.VerticalAxisID, _inputManager.InputVertical);
     }
 }
